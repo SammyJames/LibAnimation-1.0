@@ -28,8 +28,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]
 ----------------------------------------------------
+local kName, kVersion = 'LibAnimation-1.0', 1.0
+local LibAnimation = LibStub:NewLibrary( kName, kVersion )
 
-local LibAnimation = ZO_Object:Subclass()
 local AnimationMgr = ANIMATION_MANAGER
 local defaultEase = ZO_LinearEase
 
@@ -39,9 +40,9 @@ local defaultEase = ZO_LinearEase
 -- @tparam number loopCount (optional)
 -- @treturn LibAnimation object
 function LibAnimation:New( control, playbackType, loopCount )
-    local result = ZO_Object.New( self )
-    result:Initialize( control, playbackType, loopCount )
-    return result
+    local self = {}
+    self:Initialize( control, playbackType, loopCount )
+    return self
 end
 
 --- Animation Constructor
