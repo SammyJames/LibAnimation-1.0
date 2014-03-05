@@ -1,0 +1,4 @@
+## APIVersion: 100000
+## Title: LibAnimation-1.0
+
+LibAnimation.lua
