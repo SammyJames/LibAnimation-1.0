@@ -40,9 +40,20 @@ local defaultEase = ZO_LinearEase
 -- @tparam number loopCount (optional)
 -- @treturn LibAnimation object
 function LibAnimation:New( control, playbackType, loopCount )
-    local self = {}
-    self:Initialize( control, playbackType, loopCount )
-    return self
+    local result    = setmetatable( {}, self )
+    local mt        = getmetatable( result )
+    mt.__index      = self
+
+    if ( not playbackType ) then
+        playbackType = 0
+    end
+
+    if ( not loopCount ) then
+        loopCount = 0
+    end
+
+    result:Initialize( control, playbackType, loopCount )
+    return result
 end
 
 --- Animation Constructor
@@ -50,9 +61,18 @@ end
 -- @tparam number playbackType (optional)
 -- @tparam number loopCount (optional)
 function LibAnimation:Initialize( control, playbackType, loopCount )
-    self.control = control
-    self.timeline = AnimationMgr:CreateTimeline()
-    self.timeline:SetPlaybackType( playbackType or ANIMATION_PLAYBACK_ONE_SHOT, loopCount or 0 )
+    self.control    = control
+    self.timeline   = AnimationMgr:CreateTimeline()
+    self.timeline:SetPlaybackType( playbackType, loopCount )
+end
+
+--- Allows you to add a callback at a certain point in the timeline
+-- @tparam function fn
+-- @tparam number delay how long to wait before calling
+function LibAnimation:InsertCallback( fn, delay )
+    if ( self.timeline ) then
+        self.timeline:InsertCallback( fn, delay )
+    end
 end
 
 --- Stop the animation
@@ -163,11 +183,9 @@ end
 -- @tparam number duration
 -- @tparam number delay (optional)
 -- @tparam function fn easing function (optional)
-[[function LibAnimation:ScrollTo( x, y, duration, delay, fn )
+--[[function LibAnimation:ScrollTo( x, y, duration, delay, fn )
     local anim = self:GetOrCreate( ANIMATION_SCROLL, delay )
 
     anim:SetDuration( duration or 1 )
     anim:SetEasingFunction( fn or defaultEase )
 end]]
-
-setmetatable( LibAnimation, { __call = function( ... ) return LibAnimation:New( ... ) end } )
