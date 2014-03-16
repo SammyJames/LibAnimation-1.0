@@ -30,7 +30,7 @@ THE SOFTWARE.
 ----------------------------------------------------
 if ( not LibStub ) then return end
 
-local kName, kVersion = 'LibAnimation-1.0', 1.1
+local kName, kVersion = 'LibAnimation-1.0', 1.2
 local LibAnimation = LibStub:NewLibrary( kName, kVersion )
 if ( not LibAnimation ) then return end
 
@@ -129,7 +129,7 @@ function LibAnimation:TranslateTo( xoffset, yoffset, duration, delay, anchorInde
     anim:SetStartOffsetX( offsX )
     anim:SetStartOffsetY( offsY )
     anim:SetEndOffsetX( xoffset )
-    anim:SetEndOffsetY( yoffset )
+    anim:SetEndOffsetY( yoffset  )
     anim:SetAnchorIndex( anchorIndex or 0 )
 end
 
