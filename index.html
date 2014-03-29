@@ -1,1 +1,729 @@
-test
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<head>
+    <title>Reference</title>
+    <link rel="stylesheet" href="ldoc.css" type="text/css" />
+</head>
+<body>
+
+<div id="container">
+
+<div id="product">
+	<div id="product_logo"></div>
+	<div id="product_name"><big><b></b></big></div>
+	<div id="product_description"></div>
+</div> <!-- id="product" -->
+
+
+<div id="main">
+
+
+<!-- Menu -->
+
+<div id="navigation">
+<br/>
+<h1>ldoc</h1>
+
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#Functions">Functions</a></li>
+</ul>
+
+
+<h2>Modules</h2>
+<ul class="$(kind=='Topics' and '' or 'nowrap'">
+  <li><strong>LibAnimation</strong></li>
+</ul>
+
+</div>
+
+<div id="content">
+
+<h1>Module <code>LibAnimation</code></h1>
+<p>LibAnimation - for all your animation needs</p>
+<p></p>
+    <h3>Info:</h3>
+    <ul>
+        <li><strong>Copyright</strong>: [[The MIT License (MIT)</li>
+        <li><strong>Author</strong>: Pawkette ( pawkette.heals@gmail.com )</li>
+    </ul>
+
+
+<h2><a href="#Functions">Functions</a></h2>
+<table class="function_list">
+	<tr>
+	<td class="name" nowrap><a href="#New">New (control, playbackType, loopCount)</a></td>
+	<td class="summary">Create a new LibAnimation object</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Initialize">Initialize (control, playbackType, loopCount)</a></td>
+	<td class="summary">Constructor</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Apply">Apply (control)</a></td>
+	<td class="summary">Apply internal timeline to control</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#InsertCallback">InsertCallback (fn, delay)</a></td>
+	<td class="summary">Allows you to add a callback at a certain point in the timeline</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Stop">Stop ()</a></td>
+	<td class="summary">Stop the animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Play">Play ()</a></td>
+	<td class="summary">Play the animation from the begining</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#PlayBackward">PlayBackward ()</a></td>
+	<td class="summary">Play the animation from the end</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Forward">Forward ()</a></td>
+	<td class="summary">Play the animation forward from where it was stopped</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Backward">Backward ()</a></td>
+	<td class="summary">Play the animation backward from where it was stopped</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#SetUserData">SetUserData (data)</a></td>
+	<td class="summary">Store user data value</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#GetUserData">GetUserData ()</a></td>
+	<td class="summary">Retrieve user data value</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#Insert">Insert (animType, duration, delay, anchorIndex, fn)</a></td>
+	<td class="summary">Get's the existing animation or creates a new one</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#TranslateToFrom">TranslateToFrom (xorigin, yorigin, xoffset, yoffset, duration, delay, anchorIndex, fn)</a></td>
+	<td class="summary">Create new translate animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#TranslateTo">TranslateTo (xoffset, yoffset, duration, delay, anchorIndex, fn)</a></td>
+	<td class="summary">Create new translate animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ResizeToFrom">ResizeToFrom (startWidth, startHeight, width, height, duration, delay, fn)</a></td>
+	<td class="summary">Create a new size animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ResizeTo">ResizeTo (width, height, duration, delay, fn)</a></td>
+	<td class="summary">Create a new size animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ScaleToFrom">ScaleToFrom (startScale, scale, duration, delay, fn)</a></td>
+	<td class="summary">Create a new scale animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#ScaleTo">ScaleTo (scale, duration, delay, fn)</a></td>
+	<td class="summary">Create a new scale animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AlphaToFrom">AlphaToFrom (startAlpha, alpha, duration, delay, fn)</a></td>
+	<td class="summary">Create a new alpha animation</td>
+	</tr>
+	<tr>
+	<td class="name" nowrap><a href="#AlphaTo">AlphaTo (alpha, duration, delay, fn)</a></td>
+	<td class="summary">Create a new alpha animation</td>
+	</tr>
+</table>
+
+<br/>
+<br/>
+
+
+    <h2><a name="Functions"></a>Functions</h2>
+    <dl class="function">
+    <dt>
+    <a name = "New"></a>
+    <strong>New (control, playbackType, loopCount)</strong>
+    </dt>
+    <dd>
+    Create a new LibAnimation object
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">control</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.2/manual.html#6.5">table</a></span>
+         (optional)
+        </li>
+        <li><span class="parameter">playbackType</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">loopCount</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">LibAnimation</span></span>
+        object
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Initialize"></a>
+    <strong>Initialize (control, playbackType, loopCount)</strong>
+    </dt>
+    <dd>
+    Constructor
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">control</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.2/manual.html#6.5">table</a></span>
+         (optional)
+        </li>
+        <li><span class="parameter">playbackType</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">loopCount</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Apply"></a>
+    <strong>Apply (control)</strong>
+    </dt>
+    <dd>
+    Apply internal timeline to control
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">control</span>
+            <span class="types"><a class="type" href="http://www.lua.org/manual/5.2/manual.html#6.5">table</a></span>
+
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "InsertCallback"></a>
+    <strong>InsertCallback (fn, delay)</strong>
+    </dt>
+    <dd>
+    Allows you to add a callback at a certain point in the timeline
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         how long to wait before calling
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Stop"></a>
+    <strong>Stop ()</strong>
+    </dt>
+    <dd>
+    Stop the animation
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Play"></a>
+    <strong>Play ()</strong>
+    </dt>
+    <dd>
+    Play the animation from the begining
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "PlayBackward"></a>
+    <strong>PlayBackward ()</strong>
+    </dt>
+    <dd>
+    Play the animation from the end
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Forward"></a>
+    <strong>Forward ()</strong>
+    </dt>
+    <dd>
+    Play the animation forward from where it was stopped
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Backward"></a>
+    <strong>Backward ()</strong>
+    </dt>
+    <dd>
+    Play the animation backward from where it was stopped
+
+
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "SetUserData"></a>
+    <strong>SetUserData (data)</strong>
+    </dt>
+    <dd>
+    Store user data value
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">data</span>
+         some value you want to store
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "GetUserData"></a>
+    <strong>GetUserData ()</strong>
+    </dt>
+    <dd>
+    Retrieve user data value
+
+
+
+    <h3>Returns:</h3>
+    <ol>
+
+        value
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "Insert"></a>
+    <strong>Insert (animType, duration, delay, anchorIndex, fn)</strong>
+    </dt>
+    <dd>
+    Get's the existing animation or creates a new one
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">animType</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">anchorIndex</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+    <h3>Returns:</h3>
+    <ol>
+
+           <span class="types"><span class="type">animation</span></span>
+
+    </ol>
+
+
+
+
+</dd>
+    <dt>
+    <a name = "TranslateToFrom"></a>
+    <strong>TranslateToFrom (xorigin, yorigin, xoffset, yoffset, duration, delay, anchorIndex, fn)</strong>
+    </dt>
+    <dd>
+    Create new translate animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">xorigin</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">yorigin</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">xoffset</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">yoffset</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">anchorIndex</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "TranslateTo"></a>
+    <strong>TranslateTo (xoffset, yoffset, duration, delay, anchorIndex, fn)</strong>
+    </dt>
+    <dd>
+    Create new translate animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">xoffset</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">yoffset</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">anchorIndex</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ResizeToFrom"></a>
+    <strong>ResizeToFrom (startWidth, startHeight, width, height, duration, delay, fn)</strong>
+    </dt>
+    <dd>
+    Create a new size animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">startWidth</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">startHeight</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         target width
+        </li>
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">number</span></span>
+         target height
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ResizeTo"></a>
+    <strong>ResizeTo (width, height, duration, delay, fn)</strong>
+    </dt>
+    <dd>
+    Create a new size animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">width</span>
+            <span class="types"><span class="type">number</span></span>
+         target width
+        </li>
+        <li><span class="parameter">height</span>
+            <span class="types"><span class="type">number</span></span>
+         target height
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ScaleToFrom"></a>
+    <strong>ScaleToFrom (startScale, scale, duration, delay, fn)</strong>
+    </dt>
+    <dd>
+    Create a new scale animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">startScale</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">scale</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "ScaleTo"></a>
+    <strong>ScaleTo (scale, duration, delay, fn)</strong>
+    </dt>
+    <dd>
+    Create a new scale animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">scale</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AlphaToFrom"></a>
+    <strong>AlphaToFrom (startAlpha, alpha, duration, delay, fn)</strong>
+    </dt>
+    <dd>
+    Create a new alpha animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">startAlpha</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">alpha</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+    <dt>
+    <a name = "AlphaTo"></a>
+    <strong>AlphaTo (alpha, duration, delay, fn)</strong>
+    </dt>
+    <dd>
+    Create a new alpha animation
+
+
+    <h3>Parameters:</h3>
+    <ul>
+        <li><span class="parameter">alpha</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">duration</span>
+            <span class="types"><span class="type">number</span></span>
+
+        </li>
+        <li><span class="parameter">delay</span>
+            <span class="types"><span class="type">number</span></span>
+         (optional)
+        </li>
+        <li><span class="parameter">fn</span>
+            <span class="types"><span class="type">function</span></span>
+         easing function (optional)
+        </li>
+    </ul>
+
+
+
+
+
+</dd>
+</dl>
+
+
+</div> <!-- id="content" -->
+</div> <!-- id="main" -->
+<div id="about">
+<i>generated by <a href="http://github.com/stevedonovan/LDoc">LDoc 1.4.2</a></i>
+</div> <!-- id="about" -->
+</div> <!-- id="container" -->
+</body>
+</html>
