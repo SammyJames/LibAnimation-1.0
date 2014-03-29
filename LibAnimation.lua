@@ -133,7 +133,7 @@ end
 -- @tparam number delay (optional)
 -- @tparam number anchorIndex (optional)
 -- @tparam function fn (optional) easing function
--- @tresult animation
+-- @treturn userdata animation
 function LibAnimation:Insert( animType, duration, delay, anchorIndex, fn )
     local anim = self.timeline:InsertAnimation( animType, self.control, delay or 0 )
 
