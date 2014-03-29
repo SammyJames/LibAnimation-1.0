@@ -75,12 +75,10 @@ function LibAnimation:Initialize( control, playbackType, loopCount )
     self.timeline:SetPlaybackType( playbackType, loopCount )
 end
 
+--- Apply internal timeline to control
+-- @tparam table control
 function LibAnimation:Apply( control )
     self.timeline:ApplyAllAnimationsToControl( control )
-end
-
-function LibAnimation:SetHandler( ... )
-    self.timeline:SetHandler( ... )
 end
 
 --- Allows you to add a callback at a certain point in the timeline
@@ -117,17 +115,24 @@ function LibAnimation:Backward()
     self.timeline:PlayBackward()
 end
 
+--- Store a value to be used later
+-- @param data
 function LibAnimation:SetUserData( data )
     self._udata = data 
 end
 
+--- Get stored user data value
+-- @return value
 function LibAnimation:GetUserData()
     return self._udata
 end
 
 --- Get's the existing animation or creates a new one
 -- @tparam number animType
+-- @tparam number duration
 -- @tparam number delay (optional)
+-- @tparam number anchorIndex (optional)
+-- @tparam function fn (optional) easing function
 -- @tresult animation
 function LibAnimation:Insert( animType, duration, delay, anchorIndex, fn )
     local anim = self.timeline:InsertAnimation( animType, self.control, delay or 0 )
@@ -218,7 +223,12 @@ function LibAnimation:ScaleTo( scale, duration, delay, fn )
     self:ScaleToFrom( self.control:GetScale(), scale, duration, delay, fn )
 end
 
-
+--- Create a new alpha animation
+-- @tparam number startAlpha
+-- @tparam number alpha
+-- @tparam number duration
+-- @tparam number delay (optional)
+-- @tparam function fn easing function (optional)
 function LibAnimation:AlphaToFrom( startAlpha, alpha, duration, delay, fn )
     self:Stop()
     local anim = self:Insert( ANIMATION_ALPHA, duration, delay, nil, fn )
