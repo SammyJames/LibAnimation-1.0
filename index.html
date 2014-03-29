@@ -43,11 +43,12 @@
 <div id="content">
 
 <h1>Module <code>LibAnimation</code></h1>
-<p>LibAnimation - for all your animation needs</p>
+<p>Lib Animation - for all your animation needs</p>
 <p></p>
     <h3>Info:</h3>
     <ul>
-        <li><strong>Copyright</strong>: [[The MIT License (MIT)</li>
+        <li><strong>Copyright</strong>: 2014 Pawkette
+[[</li>
         <li><strong>Author</strong>: Pawkette ( pawkette.heals@gmail.com )</li>
     </ul>
 
@@ -56,11 +57,11 @@
 <table class="function_list">
 	<tr>
 	<td class="name" nowrap><a href="#New">New (control, playbackType, loopCount)</a></td>
-	<td class="summary">Create a new LibAnimation object</td>
+	<td class="summary">Create a new animation for control</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Initialize">Initialize (control, playbackType, loopCount)</a></td>
-	<td class="summary">Constructor</td>
+	<td class="summary">Animation Constructor</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Apply">Apply (control)</a></td>
@@ -92,11 +93,11 @@
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#SetUserData">SetUserData (data)</a></td>
-	<td class="summary">Store user data value</td>
+	<td class="summary">Store a value to be used later</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#GetUserData">GetUserData ()</a></td>
-	<td class="summary">Retrieve user data value</td>
+	<td class="summary">Get stored user data value</td>
 	</tr>
 	<tr>
 	<td class="name" nowrap><a href="#Insert">Insert (animType, duration, delay, anchorIndex, fn)</a></td>
@@ -147,7 +148,7 @@
     <strong>New (control, playbackType, loopCount)</strong>
     </dt>
     <dd>
-    Create a new LibAnimation object
+    Create a new animation for control
 
 
     <h3>Parameters:</h3>
@@ -182,7 +183,7 @@
     <strong>Initialize (control, playbackType, loopCount)</strong>
     </dt>
     <dd>
-    Constructor
+    Animation Constructor
 
 
     <h3>Parameters:</h3>
@@ -327,13 +328,13 @@
     <strong>SetUserData (data)</strong>
     </dt>
     <dd>
-    Store user data value
+    Store a value to be used later
 
 
     <h3>Parameters:</h3>
     <ul>
         <li><span class="parameter">data</span>
-         some value you want to store
+
         </li>
     </ul>
 
@@ -347,7 +348,7 @@
     <strong>GetUserData ()</strong>
     </dt>
     <dd>
-    Retrieve user data value
+    Get stored user data value
 
 
 
@@ -389,15 +390,15 @@
         </li>
         <li><span class="parameter">fn</span>
             <span class="types"><span class="type">function</span></span>
-         easing function (optional)
+         (optional) easing function
         </li>
     </ul>
 
     <h3>Returns:</h3>
     <ol>
 
-           <span class="types"><span class="type">animation</span></span>
-
+           <span class="types"><span class="type">userdata</span></span>
+        animation
     </ol>
 
 
